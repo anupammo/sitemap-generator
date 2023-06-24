@@ -38,56 +38,82 @@
   <div class="container">
     <div class="row">
       <div class="one-half column">
-        <div style="margin: 80px auto;">
+        <div style="margin: 80px auto 40px;">
           <h1>Free online Sitemap Generator tool</h1>
           <p>Free online Sitemap Generator tool helps to boost website SEO / Search Engine Optimisation. Generate 10
-            pages
-            sitemap without registration, sign up or payment</p>
+            pages sitemap without registration, sign up or payment</p>
+        </div>
+        <div class="form">
+          <form>
+            <label for="exampleEmailInput">Your email</label>
+            <input type="url" placeholder="https://anupammondal.in" id="urls"><br>
+            <input class="button" type="button" value="Submit" id="response" onclick="dispNconsole();">
+          </form>
         </div>
       </div>
       <div class="one-half column">
         <div style="margin: 80px auto;">
-          <ul>
-            <li>&lt;&#x3F;xml&nbsp;version=&quot;1.0&quot;&nbsp;encoding=&quot;UTF-8&quot;&#x3F;&gt;</li>
-            <li>&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;</li>
-            <li>&lt;url&gt;</li>
-            <li>&lt;loc&gt;https://anupammondal.in&lt;&#x2F;loc&gt;</li>
-            <li>&lt;lastmod&gt;2023-06-23&lt;&#x2F;lastmod&gt;</li>
-            <li>&lt;changefreq&gt;monthly&lt;&#x2F;changefreq&gt;</li>
-            <li>&lt;priority&gt;1.0&lt;&#x2F;priority&gt;</li>
-            <li>&lt;&#x2F;url&gt;</li>
-            <li>&lt;&#x2F;urlset&gt;</li>
-          </ul>
+          <p id="dispcode"></p>
         </div>
-        <!-- <code>&lt;&gt;&lt;&#x2F;&gt;</code> -->
-        <!-- <?xml version="1.0" encoding="UTF-8"?>
-        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-          <url>
-            <loc>https://anupammondal.in/</loc>
-            <lastmod>2005-01-01</lastmod>
-            <changefreq>monthly</changefreq>
-            <priority>0.8</priority>
-          </url>
-        </urlset> -->
       </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="one-half"><!-- The above form looks like this -->
-        <form>
-          <label for="exampleEmailInput">Your email</label>
-          <input class="" type="url" placeholder="www.website.com" id="exampleEmailInput">
-          <input class="button-primary" type="submit" value="Submit">
-        </form>
-      </div>
-      <div class="one-half"></div>
-
     </div>
   </div>
 
   <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script>
+    function dispNconsole() {
+
+      const date = new Date();
+      let day = date.getDate();
+      let month = date.getMonth() + 1;
+      let year = date.getFullYear();
+      // let hour = date.getHours();
+      // let minute = date.getMinutes();
+      // let second = date.getSeconds();
+      // let lastmod = year + "-" + month + "-" + day + "-" + hour + "-" + minute + "-" + second;
+      let lastmod = year + "-" + month + "-" + day;
+
+      const smaptag = [
+        "&lt;?xml&nbsp;version=&quot;1.0&quot;&nbsp;encoding=&quot;UTF-8&quot;?&gt;",
+        "&lt;urlset&nbsp;xmlns=&quot;https://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;",
+        "&lt;url&gt;",
+        "&lt;loc&gt;",
+        "&lt;&#x2F;loc&gt;",
+        "&lt;lastmod&gt;",
+        "&lt;&#x2F;lastmod&gt;",
+        "&lt;changefreq&gt;",
+        "&lt;&#x2F;changefreq&gt;</changefreq>",
+        "&lt;priority&gt;",
+        "&lt;&#x2F;priority&gt;",
+        "&lt;&#x2F;url&gt;",
+        "&lt;&#x2F;urlset&gt;"
+      ]; 
+
+      let locLink = "https://anupammondal.in"; 
+      let smPrior = "1.0"; 
+      let cFreq = "weekly"; 
+
+      let smCodes = smaptag[0] + "<br>" + smaptag[1] + "<br>" + smaptag[2] + "<br>" + smaptag[3] + locLink + smaptag[4] + "<br>" + smaptag[5] + lastmod + smaptag[6] + "<br>" + smaptag[7] + cFreq + smaptag[8] + "<br>" + smaptag[9] + smPrior + smaptag[10] + "<br>" + smaptag[11] + "<br>" + smaptag[12];
+
+      document.getElementById("dispcode").innerHTML = smCodes;
+      console.log(smCodes.length); 
+
+    }
+
+    // const i = 0;
+    // let txt = 'Add Product to Cart';
+    // const speed = 50;
+
+    // function typeWriter(strval) {
+    //   if (i < txt.length) {
+    //     document.getElementById("typetext").innerHTML += txt.charAt(i);
+    //     i++;
+    //     setTimeout(typeWriter, speed);
+    //   }
+    // }
+
+  </script>
 </body>
 
 </html>
